@@ -1,2 +1,3 @@
 # Cname-finder
-Cname find
+example:
+python3 cname.py foobar.txt
