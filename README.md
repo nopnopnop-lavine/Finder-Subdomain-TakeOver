@@ -1,3 +1,5 @@
 # Cname-finder
+
+
 example:
-python3 cname.py foobar.txt
+python3 cname.py domain.txt
