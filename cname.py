@@ -1,35 +1,40 @@
-import requests
+import subprocess
 from sys import argv
-import time
+import re
 
 
+def remove_protol(text):
+    pattern = r'https?://'
+    return re.sub(pattern, '',text)
 
 
-def checkUrlCname():
+def getUrl():
     try:
         filename = argv[1]
+        
         with open(filename,'r') as f:
+            
+            content = remove_protol(f.read())
+            list_get = list(content.split('\n'))
+            #print(list_get)
+            for url in list_get: 
 
-            content = f.read()
-            if 'http' in content:
-                print('\033[1;31;40m Only need domain not protocol \033[0m')
-                return false
+                
+                result = subprocess.run(['nslookup', '-qt=CNAME', '{}'.format(url)], capture_output=True, text=True)
+                
+                output = result.stdout.strip()
+                line = output.split("\n")[-1]
 
-            listread = list(content.split('\n'))
-
-        for url in listread:
-            req = requests.get('https://resolve-cname.josephharrisonlim.now.sh/api?hostname={}'.format(url))
-            if not 'error' in req.text:
-                print(url +' '+'cname name is finding'+ ' '+ req.text)
-                with open('result.txt','a+') as f:
-                    f.write(url + ' ' + 'has Cname name'+' '+' '+req.text+'\n')
-                f.close()
-                continue
+                if "canonical name = " in line:
+                    with open('result.txt','a+') as f:
+                        f.write(line+'\n')
+                    f.close()
+                """ else: 
+                    print("no CNAME!")  """
     except:
-        print('error')
-
-
-if __name__ == '__main__':
+        return False
+    
+if __name__== '__main__':
     print ("\n*************** [ Cname is finding ] ***************\n")
     print('''
  |  ____(_)         | |
@@ -39,6 +44,6 @@ if __name__ == '__main__':
  | |    |_|_| |_|\__,_|\___|_|
  ''')
     print("please waiting...")
-    checkUrlCname()
+    getUrl()
     print("check result.txt")
-
+    
