@@ -1,5 +1,6 @@
 # Description
-This tool is implemented using the local computer nslookup function.Collect aliases of all Subdomain and store them in result_ In cname.txt.
+This tool is implemented using the local computer nslookup function.Collect aliases of all Subdomain and store them in result_ In cname.txt.  
+This tool supports Windows and Linux systems.
 
 
 # Dependencies (Python 3)
