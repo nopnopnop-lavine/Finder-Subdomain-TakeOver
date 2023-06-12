@@ -3,12 +3,13 @@ This tool is implemented using the local computer nslookup function.Collect alia
 
 
 # Dependencies (Python 3)
-subprocess\n
-platform
-sys
-requests
-re
-threading
+subprocess  
+platform  
+sys  
+requests  
+re  
+threading 
+
 
 
 # Dependencies(other)
