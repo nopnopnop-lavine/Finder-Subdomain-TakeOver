@@ -1,4 +1,4 @@
-# Cname-finder
+# Finder
 
 
 example:
