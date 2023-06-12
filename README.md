@@ -3,7 +3,7 @@ This tool is implemented using the local computer nslookup function.Collect alia
 
 
 # Dependencies (Python 3)
-subprocess
+subprocess\n
 platform
 sys
 requests
