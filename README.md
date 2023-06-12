@@ -19,7 +19,7 @@ threading
 
 # usage
 example:
-python3 cname.py subdomain.txt
+python3 Finder.py subdomain.txt
 
 ![cname](https://github.com/nopnopnop-lavine/Finder-Subdomain-TakeOver/assets/83498921/693ccbf2-7616-40dc-ab89-3a52675b202e)
 
